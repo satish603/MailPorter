@@ -1,4 +1,4 @@
-```markdown
+
 # MailPorter API
 
 ## Overview
@@ -194,4 +194,3 @@ curl -X POST "http://localhost:8000/api/email/send-email/hostinger" \
 ## License
 
 This project is licensed under the MIT License.
-```
