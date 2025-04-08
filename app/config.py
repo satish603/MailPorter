@@ -35,7 +35,7 @@ hostinger_configs = {
         port=587,
         username=os.getenv("HOSTINGER_LEGALVALA_USERNAME", "default_legalvala"),
         password=os.getenv("HOSTINGER_LEGALVALA_PASSWORD", "default_password"),
-        bcc_list=["thebrcexplorers@gmail.com"],
+        bcc_list=["thebrcexplorers@gmail.com","info@legalvala.com"],
         template="legalvala_template.html"
     ),
     "startfinity": SMTPConfig(
