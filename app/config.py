@@ -88,9 +88,10 @@ settings = Settings(
         "newprovider": newprovider_configs
     },
     cors_allowed_origins=[
+        "https://www.brchub.me/",
         "brchub.me",
-        "www.brchub.me",
-        "https://www.brchub.me/"
+        "https://brchub.me",
+        "https://www.brchub.me"
         "https://legalvala.com",
         "legalvala.com",
         "startfinity.com",
