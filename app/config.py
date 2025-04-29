@@ -68,6 +68,25 @@ gmail_configs = {
     )
 }
 
+privateemail_configs = {
+    "default": SMTPConfig(
+        host="smtp.privateemail.com",
+        port=587,
+        username=os.getenv("PRIVATEEMAIL_USERNAME", "default_privateemail"),
+        password=os.getenv("PRIVATEEMAIL_PASSWORD", "default_password"),
+        bcc_list=["bcc1@privateemail.com"],    # adjust as needed
+        template="privateemail_template.html"   # your Jinja template
+    ),
+    "brchub": SMTPConfig(
+        host="smtp.privateemail.com",
+        port=587,
+        username=os.getenv("PRIVATEEMAIL_BRCHUB_USERNAME", "default_privateemail"),
+        password=os.getenv("PRIVATEEMAIL_BRCHUB_PASSWORD", "default_password"),
+        bcc_list=["thebrcexplorers@gmail.com"],
+        template="brchub_template.html"         # your Jinja template
+    )
+}
+
 # New Provider configuration (example)
 newprovider_configs = {
     "default": SMTPConfig(
@@ -85,6 +104,7 @@ settings = Settings(
     smtp_servers={
         "hostinger": hostinger_configs,
         "gmail": gmail_configs,
+        "privateemail": privateemail_configs,
         "newprovider": newprovider_configs
     },
     cors_allowed_origins=[
