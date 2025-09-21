@@ -65,6 +65,14 @@ gmail_configs = {
         password=os.getenv("GMAIL_BRCHUB_PASSWORD", "default_password"),
         bcc_list=["thebrcexplorers@gmail.com"],
         template="brchub_template.html"
+    ),
+    "digivaala": SMTPConfig(
+        host="smtp.gmail.com",
+        port=587,
+        username=os.getenv("GMAIL_DIGIVAALA_USERNAME", "default_gmail"),
+        password=os.getenv("GMAIL_DIGIVAALA_PASSWORD", "default_password"),
+        bcc_list=["thebrcexplorers@gmail.com"],
+        template="digivaala_template.html"
     )
 }
 
