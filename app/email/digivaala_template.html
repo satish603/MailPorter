@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Digivala</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #111111 60%, #1a1a1a 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(6, 255, 165, 0.2) 0%, transparent 50%);
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 8px 0 0 0;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 32px 24px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0 0 16px 0;
+            color: #ffffff;
+        }
+        
+        .main-text {
+            color: #a1a1aa;
+            margin: 16px 0;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(135deg, #ff6106 0%, #ff3b8d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 400;
+        }
+        
+        .message-box {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-left: 4px solid #6366f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            color: #e5e5e5;
+        }
+        
+        .message-label {
+            font-weight: 300;
+            color: #ffffff;
+            margin: 24px 0 8px 0;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, rgba(6, 255, 165, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+            border: 1px solid rgba(6, 255, 165, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        
+        .contact-label {
+            font-weight: 400;
+            color: #ffffff;
+            display: inline;
+        }
+        
+        .contact-value {
+            color: #06ffa5;
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #129af4 0%, #30166e 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 25px;
+            font-weight: 400;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+            margin: 24px 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        .service-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .service-title {
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .footer {
+            background: #111111;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-text {
+            color: #71717a;
+            font-size: 14px;
+            margin: 0 0 16px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 16px 0 0 0;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #a1a1aa;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: #ffffff;
+        }
+        
+        .powered-by {
+            margin-top: 24px;
+            padding: 16px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(6, 255, 165, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+            border-radius: 8px;
+            font-size: 14px;
+            color: #71717a;
+        }
+        
+        .powered-by a {
+            color: #0cd0ee;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 16px;
+                width: auto;
+            }
+            
+            .header {
+                padding: 24px 16px;
+            }
+            
+            .content {
+                padding: 24px 16px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+        <img src="https://digivala.in/assets/images/logo.svg" 
+            alt="Digivala Logo" 
+            style="max-width: 180px; height: auto; margin: 0 auto; display: block;">
+        <p class="logo-subtitle">Digital Marketing & Web Development</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <p class="greeting">Dear <span th:text="${name}">{{ name }}</span>,</p>
+            
+            <p class="main-text">
+                Thank you for reaching out to <span class="highlight-text">Digivala</span> ! We've received your inquiry and our expert team is excited to help transform your digital presence.
+            </p>
+            
+            <p class="message-label"><strong>Your Message:</strong></p>
+            <div class="message-box">
+                <span th:text="${message}">{{ message }}</span>
+            </div>
+            
+            <div class="contact-info">
+                <span class="contact-label">Contact Details:</span> 
+                <span class="contact-value" th:text="${mobile}">{{ mobile }}</span>
+            </div>
+            
+            <p class="main-text">
+                Our digital marketing specialists and web development experts will review your requirements and get back to you within 24 hours with a customized solution strategy.
+            </p>
+            
+            <p class="main-text">
+                For urgent inquiries, feel free to call us directly at 
+                <a href="tel:+919119728159" style="color: #06ffa5; text-decoration: none; font-weight: 400;">+91 91197 28159</a>
+            </p>
+            
+            <!-- Services Preview -->
+            <div class="services-grid">
+                <div class="service-item">
+                    <!-- <div class="service-icon">🚀</div> -->
+                    <h4 class="service-title">Digital Marketing</h4>
+                </div>
+                <div class="service-item">
+                    <!-- <div class="service-icon">💻</div> -->
+                    <h4 class="service-title">Web Development</h4>
+                </div>
+                <div class="service-item">
+                    <!-- <div class="service-icon">📱</div> -->
+                    <h4 class="service-title">Mobile Apps</h4>
+                </div>
+                <div class="service-item">
+                    <!-- <div class="service-icon">📈</div> -->
+                    <h4 class="service-title">SEO & Analytics</h4>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="https://digivala.in" class="cta-button" target="_blank" rel="noopener">
+                    Explore Our Services
+                </a>
+            </div>
+            
+            <p class="main-text">
+                Let's build something amazing together!
+            </p>
+            
+            <p class="main-text">
+                Best regards,<br>
+                <strong style="color: #d5d3d3;">Team Digivala</strong><br>
+                <span style="color: #71717a; font-size: 14px;">Your Digital Growth Partners</span>
+            </p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                Follow us for the latest digital marketing tips and web development insights
+            </p>
+            
+            <!-- <div class="social-links">
+                <a href="#" class="social-link" target="_blank" rel="noopener">📘</a>
+                <a href="#" class="social-link" target="_blank" rel="noopener">📷</a>
+                <a href="#" class="social-link" target="_blank" rel="noopener">🐦</a>
+                <a href="#" class="social-link" target="_blank" rel="noopener">💼</a>
+            </div> -->
+            
+            <p class="footer-text" style="margin-top: 16px;">
+                © 2025 Digivala. All rights reserved.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Powered By -->
+    <div class="powered-by">
+        Email powered by ⚡ 
+        <a href="https://thebrchub.tech/" target="_blank" rel="noopener">
+            The BRC HUB
+        </a>
+    </div>
+</body>
+</html>
