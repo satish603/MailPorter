@@ -107,7 +107,7 @@
         
         .contact-info {
             background: linear-gradient(135deg, rgba(6, 255, 165, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-            border: 1px solid rgba(6, 255, 165, 0.2);
+            border: 1px solid rgba(255, 238, 6, 0.2);
             border-radius: 8px;
             padding: 16px;
             margin: 20px 0;
@@ -120,7 +120,7 @@
         }
         
         .contact-value {
-            color: #06ffa5;
+            color: #ffac06;
             font-weight: 500;
         }
         
@@ -266,21 +266,37 @@
         
         <!-- Main Content -->
         <div class="content">
-            <p class="greeting">Dear <span th:text="${name}">{{ name }}</span>,</p>
-            
+            <p class="greeting">Dear <span th:text="${name}">{{name}}</span>,</p>
+
             <p class="main-text">
-                Thank you for reaching out to <span class="highlight-text">Digivala</span> ! We've received your inquiry and our expert team is excited to help transform your digital presence.
+            Thank you for reaching out to <span class="highlight-text">Digivala</span>!  
+            We've received your inquiry and our expert team is excited to help transform your digital presence.
             </p>
-            
+
+            <!-- Services Selected -->
+            <p class="message-label"><strong>Selected Services:</strong></p>
+            <div class="message-box">
+            <span th:text="${services}">{{services}}</span>
+            </div>
+
+            <!-- Message -->
             <p class="message-label"><strong>Your Message:</strong></p>
             <div class="message-box">
-                <span th:text="${message}">{{ message }}</span>
+            <span th:text="${message}">{{message}}</span>
             </div>
-            
+
+            <!-- Contact Info -->
             <div class="contact-info">
-                <span class="contact-label">Contact Details:</span> 
-                <span class="contact-value" th:text="${mobile}">{{ mobile }}</span>
+            <p>
+                <span class="contact-label">Email: </span>
+                <span class="contact-value" th:text="${email}">{{email}}</span>
+            </p>
+            <p>
+                <span class="contact-label">Phone: </span>
+                <span class="contact-value" th:text="${mobile}">{{mobile}}</span>
+            </p>
             </div>
+
             
             <p class="main-text">
                 Our digital marketing specialists and web development experts will review your requirements and get back to you within 24 hours with a customized solution strategy.
@@ -288,7 +304,7 @@
             
             <p class="main-text">
                 For urgent inquiries, feel free to call us directly at 
-                <a href="tel:+919119728159" style="color: #06ffa5; text-decoration: none; font-weight: 400;">+91 91197 28159</a>
+                <a href="tel:+919119728159" style="color: #ffac06; text-decoration: none; font-weight: 400;">+91 91197 28159</a>
             </p>
             
             <!-- Services Preview -->
