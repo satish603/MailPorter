@@ -116,6 +116,7 @@ settings = Settings(
         "newprovider": newprovider_configs
     },
     cors_allowed_origins=[
+        "https://digivala.in",
         "https://www.brchub.me",
         "https://legalvala.com",
         "legalvala.com",
