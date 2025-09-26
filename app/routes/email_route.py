@@ -1,4 +1,5 @@
 # app/routes/email_route.py
+from typing import List, Optional, Union
 from fastapi import APIRouter, HTTPException, Depends, Header, Body
 from pydantic import BaseModel, EmailStr, constr
 from app.config import settings
@@ -12,6 +13,15 @@ class EmailPayload(BaseModel):
     message: constr(min_length=1, max_length=5000)
     mobile: constr(min_length=10, max_length=15)
     brand: constr(min_length=1)  # e.g., "legalvala" or "brchub"
+    services: Optional[Union[List[constr(min_length=1, max_length=100)], constr(min_length=1, max_length=500)]] = None
+
+    def services_text(self) -> Optional[str]:
+        if self.services is None:
+            return None
+        if isinstance(self.services, list):
+            return ", ".join(service.strip() for service in self.services if service.strip()) or None
+        value = self.services.strip()
+        return value or None
 
 def get_api_key(x_api_key: str = Header(...)):
     if x_api_key != settings.api_key:
@@ -43,7 +53,9 @@ async def send_email(
     context = {
         "name": payload.name,
         "message": payload.message,
-        "mobile": payload.mobile
+        "mobile": payload.mobile,
+        "email": payload.email,
+        "services": payload.services_text()
     }
     subject = "Thank you for contacting our business"
     result = sender.send_email(recipient=payload.email, subject=subject, context=context)

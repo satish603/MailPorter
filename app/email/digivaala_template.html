@@ -276,7 +276,7 @@
             <!-- Services Selected -->
             <p class="message-label"><strong>Selected Services:</strong></p>
             <div class="message-box">
-            <span th:text="${services}">{{services}}</span>
+            <span th:text="${services}">{{ services if services else 'Not specified' }}</span>
             </div>
 
             <!-- Message -->
@@ -289,7 +289,7 @@
             <div class="contact-info">
             <p>
                 <span class="contact-label">Email: </span>
-                <span class="contact-value" th:text="${email}">{{email}}</span>
+                <span class="contact-value" th:text="${email}">{{ email if email else 'Not provided' }}</span>
             </p>
             <p>
                 <span class="contact-label">Phone: </span>
