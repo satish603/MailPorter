@@ -13,9 +13,10 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_allowed_origins,
+    allow_origin_regex=r"^https://([a-zA-Z0-9-]+\.)?(thebrchub\.tech|brchub\.me)$",
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
 app.include_router(email_route.router, prefix="/api/email")
