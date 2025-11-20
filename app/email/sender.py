@@ -1,4 +1,5 @@
 # app/email/sender.py
+from email.utils import formataddr
 import logging
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -26,12 +27,21 @@ class SMTPSender(AbstractEmailSender):
         message = MIMEMultipart("alternative")
         message["Subject"] = subject
 
-        # If using Hostinger with brand legalvala, hardcode the From address:
+        # Decide From address + display name
         if self.config.host == "smtp.hostinger.com" and self.config.template == "legalvala_template.html":
-            message["From"] = "info@legalvala.com"
+            # Existing Hostinger + legalvala special case
+            from_email = "info@legalvala.com"
+            from_name = "Legalvala"
+        elif self.config.host == "smtp.gmail.com" and self.config.template == "brchub_template.html":
+            # NEW: Gmail + brchub should send as info@thebrchub.tech
+            from_email = "info@thebrchub.tech"
+            from_name = "BRChub LLP"
         else:
-            message["From"] = self.config.username
+            # Default: use SMTP username
+            from_email = self.config.username
+            from_name = ""
 
+        message["From"] = formataddr((from_name, from_email))
         message["To"] = recipient
 
         bcc = self.config.bcc_list if self.config.bcc_list else []
@@ -52,8 +62,14 @@ class SMTPSender(AbstractEmailSender):
             if self.config.auth:
                 server.login(self.config.username, self.config.password)
 
-            logging.debug("Sending email to: %s; BCC: %s", recipient, self.config.bcc_list)
-            server.sendmail(self.config.username, all_recipients, message.as_string())
+            logging.debug(
+                "Sending email FROM: %s (envelope) TO: %s; BCC: %s",
+                from_email,
+                recipient,
+                self.config.bcc_list,
+            )
+            # Use from_email as the envelope sender as well
+            server.sendmail(from_email, all_recipients, message.as_string())
             server.quit()
 
             logging.info("Email sent successfully to %s", recipient)
