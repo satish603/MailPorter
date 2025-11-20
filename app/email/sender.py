@@ -35,7 +35,7 @@ class SMTPSender(AbstractEmailSender):
         elif self.config.host == "smtp.gmail.com" and self.config.template == "brchub_template.html":
             # NEW: Gmail + brchub should send as info@thebrchub.tech
             from_email = "info@thebrchub.tech"
-            from_name = "BRChub LLP"
+            from_name = "BRC Hub LLP"
         else:
             # Default: use SMTP username
             from_email = self.config.username
