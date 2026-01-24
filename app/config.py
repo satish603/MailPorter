@@ -69,9 +69,9 @@ gmail_configs = {
     "powerbird": SMTPConfig(
         host="smtp.gmail.com",
         port=587,
-        username=os.getenv("GMAIL_BRCHUB_USERNAME", "default_gmail"),
-        password=os.getenv("GMAIL_BRCHUB_PASSWORD", "default_password"),
-        bcc_list=[""],
+        username=os.getenv("GMAIL_POWERBIRD_USERNAME", "default_gmail"),
+        password=os.getenv("GMAIL_POWERBIRD_PASSWORD", "default_password"),
+        bcc_list=[],
         template="powerbird_template.html"
     ),
     "digivaala": SMTPConfig(
