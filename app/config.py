@@ -138,6 +138,7 @@ settings = Settings(
         "http://127.0.0.1:5500",
         "https://www.thebrchub.tech",
         "www.thebrchub.tech/:1"
+        "https://powerbird-elevators.brchub.me"
     ],
     server_port=8000  # Updated port number
 )

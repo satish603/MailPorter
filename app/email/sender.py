@@ -39,7 +39,7 @@ class SMTPSender(AbstractEmailSender):
         elif self.config.host == "smtp.gmail.com" and self.config.template == "powerbird_template.html":
             # Gmail + powerbird should send as alias info@thebrchub.tech
             from_email = "info@thebrchub.tech"
-            from_name = "Powerbird"
+            from_name = "PowerBird Elevators"
         else:
             # Default: use SMTP username
             from_email = self.config.username
