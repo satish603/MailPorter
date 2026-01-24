@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Powerbird - Thank You</title>
+</head>
+<body style="margin:0;padding:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#1a1a1a;line-height:1.6;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:linear-gradient(135deg,#f5f7fb 0%,#eaf0ff 100%);padding:24px 0;">
+    <tr>
+      <td align="center">
+        <table width="640" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid rgba(13,71,161,0.15);box-shadow:0 10px 30px rgba(13,71,161,0.08);">
+          <tr>
+            <td style="padding:28px 28px 16px 28px;background:linear-gradient(135deg,#0d47a1 0%,#1976d2 100%);color:#ffffff;">
+              <h1 style="margin:0;font-size:28px;letter-spacing:1px;">POWERBIRD</h1>
+              <p style="margin:8px 0 0 0;font-size:14px;opacity:0.9;">We received your request</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:28px;">
+              {% set full_name = (fields.get('full_name') if fields else None) or name %}
+              {% set phone_number = (fields.get('phone_number') if fields else None) or mobile %}
+              {% set email_address = (fields.get('email_address') if fields else None) or email %}
+              <p style="margin:0 0 14px 0;font-size:16px;">Hello {{ full_name }},</p>
+              <p style="margin:0 0 18px 0;color:#4a4a4a;">Thank you for contacting <strong>Powerbird</strong>. Our team will review your details and get back to you shortly.</p>
+
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f6f9ff;border:1px solid #dbe6ff;border-radius:12px;padding:16px;">
+                <tr>
+                  <td style="font-size:14px;color:#0d47a1;"><strong>Contact</strong></td>
+                </tr>
+                <tr>
+                  <td style="padding-top:8px;font-size:14px;color:#333333;">
+                    <strong>Email:</strong> {{ email_address }}<br>
+                    <strong>Phone:</strong> {{ phone_number }}
+                  </td>
+                </tr>
+              </table>
+
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Message / Remarks</h3>
+              <div style="background:#f3f5f9;border-left:4px solid #1976d2;padding:14px;border-radius:8px;color:#333333;">
+                {{ message }}
+              </div>
+
+              {% set requirement_type = fields.get('requirement_type') if fields else None %}
+              {% set building_type = fields.get('building_type') if fields else None %}
+              {% set message_remarks = fields.get('message_remarks') if fields else None %}
+              {% if requirement_type or building_type or message_remarks %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Project Inquiry</h3>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e3e8f5;border-radius:10px;overflow:hidden;">
+                {% if requirement_type %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Requirement Type</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ requirement_type }}</td>
+                </tr>
+                {% endif %}
+                {% if building_type %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Building Type</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ building_type }}</td>
+                </tr>
+                {% endif %}
+                {% if message_remarks %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Remarks</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ message_remarks }}</td>
+                </tr>
+                {% endif %}
+              </table>
+              {% endif %}
+
+              {% set contact_name = fields.get('contact_name') if fields else None %}
+              {% set city_location = fields.get('city_location') if fields else None %}
+              {% set no_of_lifts = (fields.get('no_of_lifts') if fields else None) or (fields.get('lifts_count') if fields else None) %}
+              {% set current_status = fields.get('current_status') if fields else None %}
+              {% if contact_name or city_location or no_of_lifts or current_status %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Support Online</h3>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e3e8f5;border-radius:10px;overflow:hidden;">
+                {% if contact_name %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Contact Name</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ contact_name }}</td>
+                </tr>
+                {% endif %}
+                {% if city_location %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>City / Location</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ city_location }}</td>
+                </tr>
+                {% endif %}
+                {% if no_of_lifts %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>No. of Lifts</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ no_of_lifts }}</td>
+                </tr>
+                {% endif %}
+                {% if current_status %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Current Status</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ current_status }}</td>
+                </tr>
+                {% endif %}
+              </table>
+              {% endif %}
+
+              {% if services %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Selected Services</h3>
+              <div style="background:#f3f5f9;border-left:4px solid #1976d2;padding:14px;border-radius:8px;color:#333333;">
+                {{ services }}
+              </div>
+              {% endif %}
+
+              {% if fields_extra and fields_extra|length > 0 %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Additional Details</h3>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e3e8f5;border-radius:10px;overflow:hidden;">
+                {% for key, value in fields_extra.items() %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>{{ key | replace('_', ' ') | title }}</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">
+                    {% if value is mapping %}
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        {% for k2, v2 in value.items() %}
+                        <tr>
+                          <td style="padding:4px 0;color:#546e7a;"><strong>{{ k2 | replace('_', ' ') | title }}:</strong></td>
+                          <td style="padding:4px 0;">{{ v2 }}</td>
+                        </tr>
+                        {% endfor %}
+                      </table>
+                    {% elif value is sequence and value is not string %}
+                      <ul style="margin:0;padding-left:18px;">
+                        {% for item in value %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      {{ value }}
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+              {% endif %}
+
+              <p style="margin:24px 0 0 0;color:#4a4a4a;">We will be in touch soon.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="background:#0d47a1;color:#ffffff;padding:16px;text-align:center;font-size:12px;">
+              Powerbird - Powered by BRC Hub
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -23,6 +23,9 @@ class EmailPayload(BaseModel):
         value = self.services.strip()
         return value or None
 
+    class Config:
+        extra = "allow"  # allow additional fields for dynamic templates
+
 def get_api_key(x_api_key: str = Header(...)):
     if x_api_key != settings.api_key:
         raise HTTPException(status_code=403, detail="Could not validate API key")
@@ -50,12 +53,39 @@ async def send_email(
             )
 
     sender = SMTPSender(smtp_config)
+    payload_dict = payload.dict()
+    extra_fields = {
+        key: value
+        for key, value in payload_dict.items()
+        if key not in {"name", "email", "message", "mobile", "brand", "services"}
+    }
+    reserved_field_names = {
+        "full_name",
+        "phone_number",
+        "email_address",
+        "requirement_type",
+        "building_type",
+        "message_remarks",
+        "contact_name",
+        "city_location",
+        "no_of_lifts",
+        "lifts_count",
+        "current_status"
+    }
+    extra_fields_filtered = {
+        key: value
+        for key, value in extra_fields.items()
+        if key not in reserved_field_names
+    }
     context = {
         "name": payload.name,
         "message": payload.message,
         "mobile": payload.mobile,
         "email": payload.email,
-        "services": payload.services_text()
+        "services": payload.services_text(),
+        "fields": extra_fields,
+        "fields_extra": extra_fields_filtered,
+        "payload": payload_dict
     }
     subject = "Thank you for contacting our business"
     result = sender.send_email(recipient=payload.email, subject=subject, context=context)
