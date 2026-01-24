@@ -71,7 +71,7 @@ gmail_configs = {
         port=587,
         username=os.getenv("GMAIL_BRCHUB_USERNAME", "default_gmail"),
         password=os.getenv("GMAIL_BRCHUB_PASSWORD", "default_password"),
-        bcc_list=["info@thebrchub.tech"],
+        bcc_list=[""],
         template="powerbird_template.html"
     ),
     "digivaala": SMTPConfig(
@@ -137,7 +137,7 @@ settings = Settings(
         "http://localhost:5500",
         "http://127.0.0.1:5500",
         "https://www.thebrchub.tech",
-        "www.thebrchub.tech/:1"
+        "www.thebrchub.tech/:1",
         "https://powerbird-elevators.brchub.me"
     ],
     server_port=8000  # Updated port number
