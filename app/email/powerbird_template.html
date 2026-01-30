@@ -1,181 +1,157 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>New Customer Inquiry - PowerBird Elevators</title>
-
-  <style type="text/css">
-    body {
-      width: 100% !important;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: #f3f4f6;
-      font-family: Helvetica, Arial, sans-serif;
-    }
-
-    table {
-      border-collapse: collapse;
-    }
-
-    img {
-      border: 0;
-      outline: none;
-      text-decoration: none;
-    }
-
-    .container {
-      max-width: 600px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    }
-
-    .btn {
-      background-color: #2563eb;
-      color: #ffffff !important;
-      padding: 14px 32px;
-      border-radius: 6px;
-      font-weight: bold;
-      display: inline-block;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.5px;
-    }
-
-    @media only screen and (max-width: 600px) {
-      .container {
-        width: 100% !important;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>PowerBird Elevators - Thank You</title>
 </head>
-
-<body>
-
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6;">
+<body style="margin:0;padding:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#1a1a1a;line-height:1.6;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:linear-gradient(135deg,#f5f7fb 0%,#eaf0ff 100%);padding:24px 0;">
     <tr>
-      <td align="center" style="padding:40px 10px;">
-
-        <table width="600" cellpadding="0" cellspacing="0" class="container">
-
-          <!-- TOP STRIP -->
+      <td align="center">
+        <table width="640" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:18px;overflow:hidden;border:1px solid rgba(13,71,161,0.15);box-shadow:0 10px 30px rgba(13,71,161,0.08);">
           <tr>
-            <td height="6" style="background:linear-gradient(90deg,#2563eb,#3b82f6);"></td>
-          </tr>
-
-          <!-- LOGO -->
-          <tr>
-            <td align="center" style="padding:35px 0;border-bottom:1px solid #e5e7eb;">
-              <img
-                src="https://powerbird-elevators.brchub.me/logos/logo.pngs"
-                width="180"
-                alt="PowerBird Elevators" />
+            <td style="padding:28px 28px 16px 28px;background:linear-gradient(135deg,#0d47a1 0%,#1976d2 100%);color:#ffffff;">
+              <h1 style="margin:0;font-size:28px;letter-spacing:1px;">POWERBIRD</h1>
+              <p style="margin:8px 0 0 0;font-size:14px;opacity:0.9;">We received your request</p>
             </td>
           </tr>
 
-          <!-- HEADER -->
           <tr>
-            <td align="center" style="padding:40px 50px 20px;">
-              <h1 style="margin:0;font-size:22px;color:#111827;">
-                New Customer Inquiry Received
-              </h1>
+            <td style="padding:28px;">
+              {% set full_name = (fields.get('full_name') if fields else None) or name %}
+              {% set phone_number = (fields.get('phone_number') if fields else None) or mobile %}
+              {% set email_address = (fields.get('email_address') if fields else None) or email %}
+              <p style="margin:0 0 14px 0;font-size:16px;">Hello {{ full_name }},</p>
+              <p style="margin:0 0 18px 0;color:#4a4a4a;">Thank you for contacting <strong>Powerbird</strong>. Our team will review your details and get back to you shortly.</p>
 
-              <p style="margin-top:12px;font-size:15px;color:#6b7280;line-height:24px;">
-                Hello Team PowerBird,<br /><br />
-                A new customer has submitted a service inquiry through your website.
-                Please review the details below and contact the customer as soon as possible
-                via phone call or email.
-              </p>
-            </td>
-          </tr>
-
-          <!-- DETAILS -->
-          <tr>
-            <td style="padding:0 50px 40px;">
-
-              <p
-                style="font-size:12px;font-weight:bold;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">
-                Customer Inquiry Details
-              </p>
-
-              {% set phone_number = (fields.get('phone_number') if fields else None) or (fields.get('phone') if fields else None) or mobile or phone %}
-              {% set service_name = (fields.get('service_type') if fields else None) or (fields.get('service') if fields else None) or services or service_type %}
-              <table width="100%" cellpadding="0" cellspacing="0"
-                style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
-
-                <tr style="background:#f9fafb;">
-                  <td width="30%" style="padding:12px;font-weight:bold;border-right:1px solid #e5e7eb;">Name</td>
-                  <td width="70%" style="padding:12px;">{{ name }}</td>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f6f9ff;border:1px solid #dbe6ff;border-radius:12px;padding:16px;">
+                <tr>
+                  <td style="font-size:14px;color:#0d47a1;"><strong>Contact</strong></td>
                 </tr>
-
-                <tr style="background:#ffffff;">
-                  <td style="padding:12px;font-weight:bold;border-right:1px solid #e5e7eb;">Email</td>
-                  <td style="padding:12px;">
-                    <a href="mailto:{{ email }}" style="color:#2563eb;">{{ email }}</a>
+                <tr>
+                  <td style="padding-top:8px;font-size:14px;color:#333333;">
+                    <strong>Email:</strong> {{ email_address }}<br>
+                    <strong>Phone:</strong> {{ phone_number }}
                   </td>
                 </tr>
-
-                <tr style="background:#f9fafb;">
-                  <td style="padding:12px;font-weight:bold;border-right:1px solid #e5e7eb;">Phone</td>
-                  <td style="padding:12px;">{{ phone_number }}</td>
-                </tr>
-
-                <tr style="background:#ffffff;">
-                  <td style="padding:12px;font-weight:bold;border-right:1px solid #e5e7eb;">Service</td>
-                  <td style="padding:12px;">{{ service_name }}</td>
-                </tr>
-
-                <tr style="background:#f9fafb;">
-                  <td valign="top"
-                    style="padding:12px;font-weight:bold;border-right:1px solid #e5e7eb;">
-                    Message
-                  </td>
-                  <td style="padding:12px;line-height:1.5;">
-                    {{ message }}
-                  </td>
-                </tr>
-
               </table>
 
-              <p style="margin-top:22px;font-size:14px;color:#6b7280;text-align:center;">
-                ?? Faster responses significantly improve lead conversion.
-              </p>
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Message / Remarks</h3>
+              <div style="background:#f3f5f9;border-left:4px solid #1976d2;padding:14px;border-radius:8px;color:#333333;">
+                {{ message }}
+              </div>
 
+              {% set requirement_type = fields.get('requirement_type') if fields else None %}
+              {% set building_type = fields.get('building_type') if fields else None %}
+              {% set message_remarks = fields.get('message_remarks') if fields else None %}
+              {% if requirement_type or building_type or message_remarks %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Project Inquiry</h3>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e3e8f5;border-radius:10px;overflow:hidden;">
+                {% if requirement_type %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Requirement Type</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ requirement_type }}</td>
+                </tr>
+                {% endif %}
+                {% if building_type %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Building Type</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ building_type }}</td>
+                </tr>
+                {% endif %}
+                {% if message_remarks %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Remarks</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ message_remarks }}</td>
+                </tr>
+                {% endif %}
+              </table>
+              {% endif %}
+
+              {% set contact_name = fields.get('contact_name') if fields else None %}
+              {% set city_location = fields.get('city_location') if fields else None %}
+              {% set no_of_lifts = (fields.get('no_of_lifts') if fields else None) or (fields.get('lifts_count') if fields else None) %}
+              {% set current_status = fields.get('current_status') if fields else None %}
+              {% if contact_name or city_location or no_of_lifts or current_status %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Support Online</h3>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e3e8f5;border-radius:10px;overflow:hidden;">
+                {% if contact_name %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Contact Name</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ contact_name }}</td>
+                </tr>
+                {% endif %}
+                {% if city_location %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>City / Location</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ city_location }}</td>
+                </tr>
+                {% endif %}
+                {% if no_of_lifts %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>No. of Lifts</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ no_of_lifts }}</td>
+                </tr>
+                {% endif %}
+                {% if current_status %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>Current Status</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">{{ current_status }}</td>
+                </tr>
+                {% endif %}
+              </table>
+              {% endif %}
+
+              {% if services %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Selected Services</h3>
+              <div style="background:#f3f5f9;border-left:4px solid #1976d2;padding:14px;border-radius:8px;color:#333333;">
+                {{ services }}
+              </div>
+              {% endif %}
+
+              {% if fields_extra and fields_extra|length > 0 %}
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Additional Details</h3>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e3e8f5;border-radius:10px;overflow:hidden;">
+                {% for key, value in fields_extra.items() %}
+                <tr>
+                  <td style="padding:10px 12px;background:#f8faff;border-bottom:1px solid #e3e8f5;width:32%;font-size:13px;color:#0d47a1;"><strong>{{ key | replace('_', ' ') | title }}</strong></td>
+                  <td style="padding:10px 12px;border-bottom:1px solid #e3e8f5;font-size:13px;color:#2b2b2b;">
+                    {% if value is mapping %}
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        {% for k2, v2 in value.items() %}
+                        <tr>
+                          <td style="padding:4px 0;color:#546e7a;"><strong>{{ k2 | replace('_', ' ') | title }}:</strong></td>
+                          <td style="padding:4px 0;">{{ v2 }}</td>
+                        </tr>
+                        {% endfor %}
+                      </table>
+                    {% elif value is sequence and value is not string %}
+                      <ul style="margin:0;padding-left:18px;">
+                        {% for item in value %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      {{ value }}
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+              {% endif %}
+
+              <p style="margin:24px 0 0 0;color:#4a4a4a;">We will be in touch soon.</p>
             </td>
           </tr>
 
-          <!-- FOOTER -->
           <tr>
-            <td style="background:#111827;padding:30px 40px;text-align:center;">
-              <p style="color:#ffffff;font-size:14px;font-weight:bold;margin-bottom:6px;">
-                Blazing Render Creation Hub (BRC Hub)
-              </p>
-              <p style="color:#9ca3af;font-size:12px;line-height:18px;">
-                Website Lead Notification System<br />
-                This email was automatically generated from powerbirdelevators.in
-              </p>
-            </td>
-          </tr>
-
-        </table>
-
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <td align="center" style="padding:20px;color:#9ca3af;font-size:12px;">
-              This is an automated system email. Please do not reply.
+            <td style="background:#0d47a1;color:#ffffff;padding:16px;text-align:center;font-size:12px;">
+              PowerBird Elevators - Powered by BRC Hub
             </td>
           </tr>
         </table>
-
       </td>
     </tr>
   </table>
-
 </body>
 </html>
