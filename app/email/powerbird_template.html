@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PowerBird Elevators - Thank You</title>
+  <title>New Customer Inquiry - PowerBird Elevators</title>
 </head>
 <body style="margin:0;padding:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#1a1a1a;line-height:1.6;">
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:linear-gradient(135deg,#f5f7fb 0%,#eaf0ff 100%);padding:24px 0;">
@@ -12,31 +12,34 @@
           <tr>
             <td style="padding:28px 28px 16px 28px;background:linear-gradient(135deg,#0d47a1 0%,#1976d2 100%);color:#ffffff;">
               <h1 style="margin:0;font-size:28px;letter-spacing:1px;">POWERBIRD</h1>
-              <p style="margin:8px 0 0 0;font-size:14px;opacity:0.9;">We received your request</p>
+              <p style="margin:8px 0 0 0;font-size:14px;opacity:0.9;">New Customer Inquiry Received</p>
             </td>
           </tr>
 
           <tr>
             <td style="padding:28px;">
               {% set full_name = (fields.get('full_name') if fields else None) or name %}
-              {% set phone_number = (fields.get('phone_number') if fields else None) or mobile %}
+              {% set phone_number = (fields.get('phone_number') if fields else None) or (fields.get('phone') if fields else None) or mobile or phone %}
               {% set email_address = (fields.get('email_address') if fields else None) or email %}
-              <p style="margin:0 0 14px 0;font-size:16px;">Hello {{ full_name }},</p>
-              <p style="margin:0 0 18px 0;color:#4a4a4a;">Thank you for contacting <strong>Powerbird</strong>. Our team will review your details and get back to you shortly.</p>
+              {% set service_name = (fields.get('service_type') if fields else None) or (fields.get('service') if fields else None) or services or service_type %}
+              <p style="margin:0 0 14px 0;font-size:16px;">Hello Team PowerBird,</p>
+              <p style="margin:0 0 18px 0;color:#4a4a4a;">A new customer has submitted a service inquiry through your website. Please review the details below and contact the customer as soon as possible via phone call or email.</p>
 
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f6f9ff;border:1px solid #dbe6ff;border-radius:12px;padding:16px;">
                 <tr>
-                  <td style="font-size:14px;color:#0d47a1;"><strong>Contact</strong></td>
+                  <td style="font-size:14px;color:#0d47a1;"><strong>CUSTOMER INQUIRY DETAILS</strong></td>
                 </tr>
                 <tr>
                   <td style="padding-top:8px;font-size:14px;color:#333333;">
+                    <strong>Name:</strong> {{ full_name }}<br>
                     <strong>Email:</strong> {{ email_address }}<br>
-                    <strong>Phone:</strong> {{ phone_number }}
+                    <strong>Phone:</strong> {{ phone_number }}<br>
+                    <strong>Service:</strong> {{ service_name }}
                   </td>
                 </tr>
               </table>
 
-              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Message / Remarks</h3>
+              <h3 style="margin:24px 0 10px 0;font-size:16px;color:#0d47a1;">Message</h3>
               <div style="background:#f3f5f9;border-left:4px solid #1976d2;padding:14px;border-radius:8px;color:#333333;">
                 {{ message }}
               </div>
@@ -140,13 +143,15 @@
               </table>
               {% endif %}
 
-              <p style="margin:24px 0 0 0;color:#4a4a4a;">We will be in touch soon.</p>
+              <p style="margin:24px 0 0 0;color:#4a4a4a;">⚠️ Faster responses significantly improve lead conversion.</p>
             </td>
           </tr>
 
           <tr>
             <td style="background:#0d47a1;color:#ffffff;padding:16px;text-align:center;font-size:12px;">
-              PowerBird Elevators - Powered by BRC Hub
+              Blazing Render Creation Hub (BRC Hub)<br>
+              Website Lead Notification System<br>
+              This email was automatically generated from powerbirdelevators.in
             </td>
           </tr>
         </table>
