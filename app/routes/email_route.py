@@ -88,6 +88,9 @@ async def send_email(
         "payload": payload_dict
     }
     subject = "Thank you for contacting our business"
+    # powerbird_template
+    if smtp_config.template == "powerbird_template.html":
+        subject = "New Inquiry from PowerBird Elevators Website"
     result = sender.send_email(recipient=payload.email, subject=subject, context=context)
     if result.get("status") == "error":
         raise HTTPException(status_code=500, detail=result.get("message"))
