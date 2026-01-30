@@ -89,7 +89,7 @@ async def send_email(
     }
     subject = "Thank you for contacting our business"
     # powerbird_template
-    if smtp_config.template == "powerbird_template.html":
+    if payload.brand.lower() == "powerbird" or smtp_config.template == "powerbird_template.html":
         subject = "New Inquiry from PowerBird Elevators Website"
     result = sender.send_email(recipient=payload.email, subject=subject, context=context)
     if result.get("status") == "error":
