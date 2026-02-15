@@ -64,7 +64,7 @@ gmail_configs = {
         username=os.getenv("GMAIL_BRCHUB_USERNAME", "default_gmail"),
         password=os.getenv("GMAIL_BRCHUB_PASSWORD", "default_password"),
         bcc_list=["info@thebrchub.tech"],
-        template="brchub_template.html"
+        template="brchub_v2.html"
     ),
     "powerbird": SMTPConfig(
         host="smtp.gmail.com",
@@ -99,7 +99,7 @@ privateemail_configs = {
         username=os.getenv("PRIVATEEMAIL_BRCHUB_USERNAME", "default_privateemail"),
         password=os.getenv("PRIVATEEMAIL_BRCHUB_PASSWORD", "default_password"),
         bcc_list=["thebrcexplorers@gmail.com"],
-        template="brchub_template.html"         # your Jinja template
+        template="brchub_v2.html"         # your Jinja template
     )
 }
 

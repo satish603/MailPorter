@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Lead - BRC Hub</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f5;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #eeeeee;">
+          <tr>
+            <td style="background-color:#0A0A0A;padding:28px 32px;text-align:center;border-bottom:3px solid #FF5722;">
+              <a href="https://thebrchub.tech" style="color:#ffffff;font-size:24px;font-weight:800;letter-spacing:-0.5px;text-decoration:none;font-family:Helvetica,Arial,sans-serif;">BRC <span style="color:#FF5722;">HUB LLP</span></a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:32px 32px 24px 32px;font-family:Helvetica,Arial,sans-serif;color:#333333;">
+              <p style="margin:0 0 18px 0;font-size:20px;font-weight:700;color:#111111;border-bottom:1px solid #eeeeee;padding-bottom:10px;">New Project Inquiry</p>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="50%" valign="top" style="padding-right:8px;">
+                    <p style="margin:0 0 4px 0;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888888;font-weight:700;">Client Name</p>
+                    <p style="margin:0 0 16px 0;font-size:16px;color:#111111;font-weight:500;">{{ name }}</p>
+                  </td>
+                  <td width="50%" valign="top" style="padding-left:8px;">
+                    <p style="margin:0 0 4px 0;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888888;font-weight:700;">Email Address</p>
+                    <p style="margin:0 0 16px 0;font-size:16px;color:#111111;font-weight:500;">
+                      <a href="mailto:{{ email }}" style="color:#FF5722;text-decoration:none;">{{ email }}</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="50%" valign="top" style="padding-right:8px;">
+                    <p style="margin:0 0 4px 0;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888888;font-weight:700;">Phone Number</p>
+                    <p style="margin:0 0 16px 0;font-size:16px;color:#111111;font-weight:500;">{{ mobile }}</p>
+                  </td>
+                  <td width="50%" valign="top" style="padding-left:8px;">
+                    <p style="margin:0 0 4px 0;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888888;font-weight:700;">Company / Website</p>
+                    <p style="margin:0 0 16px 0;font-size:16px;color:#111111;font-weight:500;">{{ fields.get('company') or fields.get('company_name') or fields.get('website') or fields.get('company_website') or fields.get('user_company') or 'Not provided' }}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:8px 0 4px 0;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888888;font-weight:700;">Interested In</p>
+              <p style="margin:0 0 16px 0;font-size:16px;color:#111111;font-weight:500;">{{ services or 'Not specified' }}</p>
+
+              <p style="margin:8px 0 6px 0;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888888;font-weight:700;">Project Details</p>
+              <div style="background-color:#fff5f2;border-left:4px solid #FF5722;padding:16px;border-radius:4px;color:#444444;white-space:pre-line;font-size:15px;line-height:1.5;">{{ message }}</div>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;border-top:1px solid #eeeeee;">
+                <tr>
+                  <td align="center" style="padding-top:20px;">
+                    <a href="mailto:{{ email }}" style="display:inline-block;background-color:#FF5722;color:#ffffff;text-decoration:none;padding:12px 30px;border-radius:6px;font-weight:700;font-size:14px;">Reply to Client</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:#f4f4f5;padding:18px 24px;text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#888888;border-top:1px solid #e0e0e0;">
+              <p style="margin:0 0 6px 0;">Sent via <strong>BRC Hub Website</strong> Contact Form.</p>
+              <p style="margin:0;"><a href="https://thebrchub.tech" style="color:#888888;text-decoration:underline;">thebrchub.tech</a></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

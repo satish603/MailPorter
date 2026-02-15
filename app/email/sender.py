@@ -32,7 +32,7 @@ class SMTPSender(AbstractEmailSender):
             # Existing Hostinger + legalvala special case
             from_email = "info@legalvala.com"
             from_name = "Legalvala"
-        elif self.config.host == "smtp.gmail.com" and self.config.template == "brchub_template.html":
+        elif self.config.host == "smtp.gmail.com" and self.config.template in {"brchub_v2.html", "brchub_template.html"}:
             # NEW: Gmail + brchub should send as info@thebrchub.tech
             from_email = "info@thebrchub.tech"
             from_name = "BRC Hub LLP"
