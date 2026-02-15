@@ -77,11 +77,13 @@ async def send_email(
         for key, value in extra_fields.items()
         if key not in reserved_field_names
     }
+    user_email = (payload_dict.get("user_email") or payload.email or "").strip() or None
     context = {
         "name": payload.name,
         "message": payload.message,
         "mobile": payload.mobile,
         "email": payload.email,
+        "user_email": user_email,
         "services": payload.services_text(),
         "fields": extra_fields,
         "fields_extra": extra_fields_filtered,
