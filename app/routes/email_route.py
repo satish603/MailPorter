@@ -87,10 +87,11 @@ async def send_email(
         "fields_extra": extra_fields_filtered,
         "payload": payload_dict
     }
-    subject = "Thank you for contacting our business"
+    default_subject = "Thank you for contacting our business"
     # powerbird_template
     if payload.brand.lower() == "powerbird" or smtp_config.template == "powerbird_template.html":
-        subject = "New Inquiry from PowerBird Elevators Website"
+        default_subject = "New Inquiry from PowerBird Elevators Website"
+    subject = (payload_dict.get("subject") or "").strip() or default_subject
     result = sender.send_email(recipient=payload.email, subject=subject, context=context)
     if result.get("status") == "error":
         raise HTTPException(status_code=500, detail=result.get("message"))
