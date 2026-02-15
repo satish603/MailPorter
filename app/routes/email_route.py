@@ -11,7 +11,7 @@ class EmailPayload(BaseModel):
     name: constr(min_length=1, max_length=50)
     email: EmailStr
     message: constr(min_length=1, max_length=5000)
-    mobile: constr(min_length=10, max_length=15)
+    mobile: Optional[constr(min_length=10, max_length=15)] = None
     brand: constr(min_length=1)  # e.g., "legalvala" or "brchub"
     services: Optional[Union[List[constr(min_length=1, max_length=100)], constr(min_length=1, max_length=500)]] = None
 
