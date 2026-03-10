@@ -81,6 +81,14 @@ gmail_configs = {
         password=os.getenv("GMAIL_DIGIVAALA_PASSWORD", "default_password"),
         bcc_list=["thebrcexplorers@gmail.com","digivaala@gmail.com"],
         template="digivaala_template.html"
+    ),
+    "zquab": SMTPConfig(
+        host="smtp.gmail.com",
+        port=587,
+        username=os.getenv("GMAIL_ZQUAB_USERNAME", "default_gmail"),
+        password=os.getenv("GMAIL_ZQUAB_PASSWORD", "default_password"),
+        bcc_list=["info@zquab.com"],
+        template="zquab_template.html"
     )
 }
 

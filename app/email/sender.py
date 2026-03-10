@@ -40,6 +40,10 @@ class SMTPSender(AbstractEmailSender):
             # Gmail + powerbird should send as alias info@thebrchub.tech
             from_email = "info@thebrchub.tech"
             from_name = "PowerBird Elevators"
+        elif self.config.host == "smtp.gmail.com" and self.config.template == "zquab_template.html":
+            # Gmail + zquab should send as info@zquab.com
+            from_email = "info@zquab.com"
+            from_name = "zQuab"
         else:
             # Default: use SMTP username
             from_email = self.config.username
